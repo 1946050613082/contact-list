@@ -68,3 +68,29 @@ document
       document.getElementById("id-eliminar").value = "";
     }
   });
+
+// Función para actualizar un contacto existente
+function actualizarContacto(id, nuevosDatos) {
+  for (let i = 0; i < listaDeContactos.length; i++) {
+    if (listaDeContactos[i].id === id) {
+      if (nuevosDatos.nombres) {
+        listaDeContactos[i].nombres = nuevosDatos.nombres;
+      }
+      if (nuevosDatos.apellidos) {
+        listaDeContactos[i].apellidos = nuevosDatos.apellidos;
+      }
+      if (nuevosDatos.telefono) {
+        listaDeContactos[i].telefono = nuevosDatos.telefono;
+      }
+      if (nuevosDatos.ubicaciones) {
+        if (nuevosDatos.ubicaciones.ciudad) {
+          listaDeContactos[i].ubicaciones.ciudad = nuevosDatos.ubicaciones.ciudad;
+        }
+        if (nuevosDatos.ubicaciones.direccion) {
+          listaDeContactos[i].ubicaciones.direccion = nuevosDatos.ubicaciones.direccion;
+        }
+      }
+      break;
+    }
+  }
+}
